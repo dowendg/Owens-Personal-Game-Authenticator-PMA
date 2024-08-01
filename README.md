@@ -1,4 +1,4 @@
-### Owens Personal Game Authenticator (PMA) Bridge (for minecraft)
+Owens Personal Game Authenticator (PMA) Bridge (for Minecraft)
 Overview
 
 Owens Personal Game Authenticator (PMA) Bridge is a custom implementation of the mc-authn library. This tool acts as a bridge for Minecraft authentication, leveraging Microsoft’s OAuth 2.0 services to streamline the process of obtaining and managing Minecraft authentication tokens. It is specifically tailored for personal projects and is not intended for commercial use or broad distribution.
@@ -46,7 +46,7 @@ Setup
 
     Update Hard-Coded Values
 
-    The authserver.py script contains hard-coded values for ClientID, ClientSecret, and TenantID. Replace these placeholders in the script with your actual Azure credentials:
+    The authserver.py script contains hard-coded values for CLIENT_ID, CLIENT_SECRET, and TENTNT_ID. Replace these placeholders in the script with your actual Azure credentials:
 
     python
 
@@ -80,7 +80,7 @@ Custom Implementation Details
 
     Flask API Endpoint: The application features a Flask API endpoint that handles the OAuth flow initiation and token management, enabling automated requests and integration with other services.
     Custom Domain Integration: The callback.py script allows integration with a custom domain, forwarding OAuth requests to the authentication server for streamlined processing.
-    Hard-Coded Values: The script uses hard-coded values for configuration, including ClientID, ClientSecret, and TenantID, which can be customized for your needs.
+    Hard-Coded Values: The script uses hard-coded values for configuration, including CLIENT_ID, CLIENT_SECRET, and TENTNT_ID, which can be customized for your needs.
 
 Future Improvements
 
