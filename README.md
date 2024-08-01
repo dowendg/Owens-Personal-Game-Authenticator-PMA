@@ -1,4 +1,3 @@
-Certainly! Here’s the updated README with the revised name and details:
 Owens Personal Game Authenticator (PMA) Bridge
 Overview
 
@@ -11,6 +10,7 @@ Features
     Custom Implementation: A personalized version of the mc-authn library.
     Token Management: Automates the retrieval and management of authentication tokens for Minecraft.
     Flask API Endpoint: Includes a Flask API endpoint to initiate and manage authentication requests.
+    Custom Domain Integration: Designed to work with a custom domain using callback.py to forward requests to the authentication server.
 
 Requirements
 
@@ -50,9 +50,15 @@ Setup
 
     python
 
+    CLIENT_ID = "YOUR_CLIENT_ID"  # Replace with your Azure Client ID
+    CLIENT_SECRET = "YOUR_CLIENT_SECRET"  # Replace with your Azure Client Secret
     TENTNT_ID = "YOUR_TENANT_ID"  # Replace with your Azure Tenant ID
 
-    Ensure you replace YOUR_TENANT_ID with your actual Tenant ID.
+    Ensure you replace YOUR_CLIENT_ID, YOUR_CLIENT_SECRET, and YOUR_TENANT_ID with your actual Azure credentials.
+
+    Custom Domain Setup
+
+    If you wish to use a custom domain, configure the callback.py script to handle forwarding requests to the authentication server. This script helps in managing OAuth callbacks through your custom domain setup.
 
 Usage
 
@@ -73,7 +79,8 @@ Usage
 Custom Implementation Details
 
     Flask API Endpoint: The application features a Flask API endpoint that handles the OAuth flow initiation and token management, enabling automated requests and integration with other services.
-    Hard-Coded Values: The script uses hard-coded values for configuration, including Tenant ID and other details, which can be customized for your needs.
+    Custom Domain Integration: The callback.py script allows integration with a custom domain, forwarding OAuth requests to the authentication server for streamlined processing.
+    Hard-Coded Values: The script uses hard-coded values for configuration, including ClientID, ClientSecret, and TenantID, which can be customized for your needs.
 
 Future Improvements
 
@@ -94,4 +101,3 @@ For questions or issues, please contact:
 
     Email: owen@owendobson.com
     GitHub: otdobson
-
