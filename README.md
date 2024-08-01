@@ -1,22 +1,23 @@
 Owens Personal Game Authenticator (PMA) Bridge (for Minecraft)
 Overview
 
-Owens Personal Game Authenticator (PMA) Bridge is a custom implementation of the mc-authn library. This tool acts as a bridge for Minecraft authentication, leveraging Microsoft’s OAuth 2.0 services to streamline the process of obtaining and managing Minecraft authentication tokens. It is specifically tailored for personal projects and is not intended for commercial use or broad distribution.
+Owens Personal Game Authenticator (PMA) Bridge is a custom implementation designed to facilitate Minecraft authentication using Microsoft’s OAuth 2.0 services. This tool is tailored for personal use and is not intended for commercial distribution.
 
-Note: This project is currently in development and designed for personal use only.
+Note: This project is currently in development and intended solely for personal use.
 Features
 
     OAuth 2.0 Authentication: Utilizes Microsoft’s OAuth 2.0 for secure authentication.
-    Custom Implementation: A personalized version of the mc-authn library.
-    Token Management: Automates the retrieval and management of authentication tokens for Minecraft.
-    Flask API Endpoint: Includes a Flask API endpoint to initiate and manage authentication requests.
-    Custom Domain Integration: Designed to work with a custom domain using callback.py to forward requests to the authentication server.
+    Custom Implementation: A tailored version of the mc-authn library.
+    Token Management: Automates the retrieval and management of Minecraft authentication tokens.
+    Flask API Endpoint: Includes a Flask API endpoint for managing authentication requests.
+    Custom Domain Integration: Supports a custom domain for OAuth callback handling via callback.py.
+    Device Code Flow Bridge: Allows authentication on devices without web browsers, enhancing usability in restricted environments.
 
 Requirements
 
     Python 3.7 or higher
-    mc-authn library (installed via pip)
-    Flask for the API
+    mc-authn library (install via pip)
+    Flask
     Microsoft Azure account for OAuth setup
 
 Installation
@@ -25,12 +26,12 @@ Installation
 
     bash
 
-git clone https://github.com/yourusername/pma-bridge.git
-cd pma-bridge
+git clone https://github.com/yourusername/Owens-Personal-Game-Authenticator-PMA.git
+cd Owens-Personal-Game-Authenticator-PMA
 
 Install Dependencies
 
-Ensure you have Python 3.7 or higher installed, then install the required Python packages:
+Ensure you have Python 3.7 or higher installed, then install the required packages:
 
 bash
 
@@ -44,33 +45,35 @@ Setup
         Create a new application and set Redirect URI to http://localhost:18275.
         Note down the Application (client) ID, Client Secret, and Directory (Tenant) ID.
 
-    Update Hard-Coded Values
+    Update Configuration
 
-    The authserver.py script contains hard-coded values for CLIENT_ID, CLIENT_SECRET, and TENTNT_ID. Replace these placeholders in the script with your actual Azure credentials:
+    Edit server.py to replace the placeholders with your Azure credentials:
 
     python
 
     CLIENT_ID = "YOUR_CLIENT_ID"  # Replace with your Azure Client ID
     CLIENT_SECRET = "YOUR_CLIENT_SECRET"  # Replace with your Azure Client Secret
-    TENTNT_ID = "YOUR_TENANT_ID"  # Replace with your Azure Tenant ID
-
-    Ensure you replace YOUR_CLIENT_ID, YOUR_CLIENT_SECRET, and YOUR_TENANT_ID with your actual Azure credentials.
+    TENANT_ID = "YOUR_TENANT_ID"  # Replace with your Azure Tenant ID
 
     Custom Domain Setup
 
-    If you wish to use a custom domain, configure the callback.py script to handle forwarding requests to the authentication server. This script helps in managing OAuth callbacks through your custom domain setup.
+    If using a custom domain, configure callback.py to handle OAuth callback requests.
 
 Usage
 
     Start Authentication
 
-    Run the authentication script to initiate the login process. This script starts a Flask API endpoint to handle authentication requests:
+    Run the following command to start the Flask API endpoint:
 
     bash
 
-    python authserver.py
+    python server.py
 
-    Follow the on-screen instructions to complete the authentication process in your web browser.
+    Follow the on-screen instructions to complete the authentication process in your web browser or via the device code flow.
+
+    Device Code Flow
+
+    If authentication via a web browser is not possible, the Device Code Flow will allow you to authenticate using a device code. The application will provide instructions to enter the device code on a separate device with web access.
 
     Obtain Tokens
 
@@ -78,20 +81,19 @@ Usage
 
 Custom Implementation Details
 
-    Flask API Endpoint: The application features a Flask API endpoint that handles the OAuth flow initiation and token management, enabling automated requests and integration with other services.
-    Custom Domain Integration: The callback.py script allows integration with a custom domain, forwarding OAuth requests to the authentication server for streamlined processing.
-    Hard-Coded Values: The script uses hard-coded values for configuration, including CLIENT_ID, CLIENT_SECRET, and TENTNT_ID, which can be customized for your needs.
+    Flask API Endpoint: Manages OAuth flow initiation and token management.
+    Custom Domain Integration: callback.py manages OAuth callbacks through a custom domain.
+    Device Code Flow Bridge: Provides an alternative authentication method for devices lacking a web browser.
 
 Future Improvements
 
-    Device Code Flow Bridge: Plans to incorporate a device code flow to facilitate authentication on devices that lack a web browser or in scenarios where interactive login is impractical. This will enhance the tool's flexibility and usability, especially in environments where traditional OAuth flows are challenging.
-    Client Integration: Future updates may include support for integrating with various client applications, simplifying the use of the authenticator across different platforms and workflows. This includes creating seamless integrations with Minecraft clients and other related tools.
-    Enhanced Security Features: Additional security measures will be implemented to protect tokens and credentials, such as improved encryption and secure storage practices.
-    Expanded Documentation and Support: Development of more comprehensive documentation and support resources to assist users in configuring and using the tool effectively.
+    Client Integration: Potential support for various client applications.
+    Enhanced Security Features: Improved encryption and secure storage practices.
+    Expanded Documentation and Support: Comprehensive resources for configuring and using the tool.
 
 Contributing
 
-This project is under active development and is intended for personal use. Contributions are welcome for enhancements or improvements. Please fork the repository and submit a pull request for any changes.
+This project is under active development and is intended for personal use. Contributions for enhancements or improvements are welcome. Please fork the repository and submit a pull request for any changes.
 License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
