@@ -1,4 +1,4 @@
-###Owens Personal Game Authenticator (PMA) Bridge (for minecraft)
+### Owens Personal Game Authenticator (PMA) Bridge (for minecraft)
 Overview
 
 Owens Personal Game Authenticator (PMA) Bridge is a custom implementation of the mc-authn library. This tool acts as a bridge for Minecraft authentication, leveraging Microsoft’s OAuth 2.0 services to streamline the process of obtaining and managing Minecraft authentication tokens. It is specifically tailored for personal projects and is not intended for commercial use or broad distribution.
